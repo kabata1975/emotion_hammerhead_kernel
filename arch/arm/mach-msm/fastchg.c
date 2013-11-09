@@ -1,7 +1,11 @@
 /*
  * Author: Chad Froebel <chadfroebel@gmail.com>
  *
+<<<<<<< HEAD
  * Simple port to Nexus 4 : motley <motley.slate@gmail.com>
+=======
+ * Port to Nexus 5 : flar2 <asegaert@gmail.com>
+>>>>>>> 44f6ae8... USB Fast Charge for Nexus 5
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -18,12 +22,17 @@
  * Possible values for "force_fast_charge" are :
  *
  *   0 - disabled (default)
+<<<<<<< HEAD
  *   1 - substitute AC to USB unconditional
+=======
+ *   1 - increase charge current limit to 900mA
+>>>>>>> 44f6ae8... USB Fast Charge for Nexus 5
 */
 
 #include <linux/kobject.h>
 #include <linux/sysfs.h>
 #include <linux/fastchg.h>
+<<<<<<< HEAD
 
 int force_fast_charge;
 
@@ -31,10 +40,35 @@ int force_fast_charge;
 static ssize_t force_fast_charge_show(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
 {
 return sprintf(buf, "%d\n", force_fast_charge);
+=======
+#include <linux/string.h>
+
+int force_fast_charge = 0;
+static int __init get_fastcharge_opt(char *ffc)
+{
+	if (strcmp(ffc, "0") == 0) {
+		force_fast_charge = 0;
+	} else if (strcmp(ffc, "1") == 0) {
+		force_fast_charge = 1;
+	} else {
+		force_fast_charge = 0;
+	}
+	return 1;
+}
+
+__setup("ffc=", get_fastcharge_opt);
+
+static ssize_t force_fast_charge_show(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
+{
+	size_t count = 0;
+	count += sprintf(buf, "%d\n", force_fast_charge);
+	return count;
+>>>>>>> 44f6ae8... USB Fast Charge for Nexus 5
 }
 
 static ssize_t force_fast_charge_store(struct kobject *kobj, struct kobj_attribute *attr, const char *buf, size_t count)
 {
+<<<<<<< HEAD
 
 int new_force_fast_charge;
 
@@ -46,6 +80,13 @@ if (new_force_fast_charge >= FAST_CHARGE_DISABLED && new_force_fast_charge <= FA
 }
 
 return count;
+=======
+	if (buf[0] >= '0' && buf[0] <= '1' && buf[1] == '\n')
+                if (force_fast_charge != buf[0] - '0')
+		        force_fast_charge = buf[0] - '0';
+
+	return count;
+>>>>>>> 44f6ae8... USB Fast Charge for Nexus 5
 }
 
 static struct kobj_attribute force_fast_charge_attribute =
@@ -67,7 +108,11 @@ int force_fast_charge_init(void)
 {
 	int force_fast_charge_retval;
 
+<<<<<<< HEAD
 	force_fast_charge = FAST_CHARGE_DISABLED; /* Forced fast charge disabled by default */
+=======
+//	force_fast_charge = FAST_CHARGE_DISABLED; /* Forced fast charge disabled by default */
+>>>>>>> 44f6ae8... USB Fast Charge for Nexus 5
 
 	force_fast_charge_kobj = kobject_create_and_add("fast_charge", kernel_kobj);
 	if (!force_fast_charge_kobj) {
