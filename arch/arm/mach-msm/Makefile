@@ -441,4 +441,8 @@ obj-y += fastchg.o
 =======
 
 obj-$(CONFIG_FORCE_FAST_CHARGE) += fastchg.o
+<<<<<<< HEAD
 >>>>>>> 44f6ae8... USB Fast Charge for Nexus 5
+=======
+obj-$(CONFIG_MSM_SLEEPER) += msm-sleeper.o
+>>>>>>> 77d886f... Max screen off frequency and shut down cores while screen is off
