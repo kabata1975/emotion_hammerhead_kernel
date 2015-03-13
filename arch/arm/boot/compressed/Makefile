@@ -24,8 +24,7 @@ endif
 AFLAGS_head.o += -DTEXT_OFFSET=$(TEXT_OFFSET)
 AFLAGS_head.o += -Wa,-mcpu=cortex-a15
 HEAD	= head.o
-OBJS	+= misc.o decompress.o
-FONTC	= $(srctree)/drivers/video/console/font_acorn_8x8.c
+OBJS	+= misc.o
 
 AFLAGS_misc.o += -Wa,-mcpu=cortex-a15
 MISC = misc.o
