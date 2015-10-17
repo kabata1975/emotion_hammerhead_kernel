@@ -23,7 +23,11 @@
 	/* Updated chip ID */
 	qcom,chipid = <0x03030001>;
 
+<<<<<<< HEAD
 	qcom,initial-pwrlevel = <6>;
+=======
+	qcom,initial-pwrlevel = <0>;
+>>>>>>> 4e92f3d... GPU: idle at 27. Steps 100,200,320,389,450. Initial 450
 
 	/* Updated bus bandwidth requirements */
 	qcom,msm-bus,vectors-KBps =
@@ -62,44 +66,39 @@
 
 		qcom,gpu-pwrlevel@2 {
 			reg = <2>;
-			qcom,gpu-freq = <389000000>;
-			qcom,bus-freq = <3>;
-			qcom,io-fraction = <66>;
-		};
-
-		qcom,gpu-pwrlevel@3 {
-			reg = <3>;
-			qcom,gpu-freq = <320000000>;
-			qcom,bus-freq = <4>;
-			qcom,io-fraction = <66>;
-		};
-
-		qcom,gpu-pwrlevel@4 {
-			reg = <4>;
 			qcom,gpu-freq = <320000000>;
 			qcom,bus-freq = <3>;
 			qcom,io-fraction = <66>;
 		};
 
-		qcom,gpu-pwrlevel@5 {
-			reg = <5>;
-			qcom,gpu-freq = <200000000>;
-			qcom,bus-freq = <2>;
-			qcom,io-fraction = <100>;
-		};
+			qcom,gpu-pwrlevel@3 {
+				reg = <3>;
+				qcom,gpu-freq = <200000000>;
+				qcom,bus-freq = <2>;
+				qcom,io-fraction = <100>;
+			};
 
-		qcom,gpu-pwrlevel@6 {
-			reg = <6>;
-			qcom,gpu-freq = <200000000>;
-			qcom,bus-freq = <1>;
-			qcom,io-fraction = <100>;
-		};
+			qcom,gpu-pwrlevel@4 {
+				reg = <4>;
+				qcom,gpu-freq = <100000000>;
+				qcom,bus-freq = <1>;
+				qcom,io-fraction = <100>;
+			};
 
+<<<<<<< HEAD
 		qcom,gpu-pwrlevel@7 {
 			reg = <7>;
 			qcom,gpu-freq = <20000000>;
 			qcom,bus-freq = <0>;
 			qcom,io-fraction = <0>;
+=======
+			qcom,gpu-pwrlevel@5 {
+				reg = <5>;
+				qcom,gpu-freq = <27000000>;
+				qcom,bus-freq = <0>;
+				qcom,io-fraction = <0>;
+>>>>>>> 4e92f3d... GPU: idle at 27. Steps 100,200,320,389,450. Initial 450
 		};
+
 	};
 };
