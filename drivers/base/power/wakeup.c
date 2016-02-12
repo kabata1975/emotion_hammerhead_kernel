@@ -416,13 +416,6 @@ static void wakeup_source_activate(struct wakeup_source *ws)
 {
 	unsigned int cec;
 
-<<<<<<< HEAD
-	/*
-	 * active wakeup source should bring the system
-	 * out of PM_SUSPEND_FREEZE state
-	 */
-	freeze_wake();
-=======
 	if (!enable_wlan_rx_wake_ws && !strcmp(ws->name, "wlan_rx_wake"))
                 return;
 
@@ -431,7 +424,6 @@ static void wakeup_source_activate(struct wakeup_source *ws)
 
 	if (!enable_wlan_wake_ws && !strcmp(ws->name, "wlan_wake"))
                 return;
->>>>>>> 3b9a7a8... wakeup: add toggles for wlan wakelocks. They are all enabled by default, it's up to the user and I provide no support if Wi-Fi stops working normally without these locks enabled. This is for advanced users
 
 	ws->active = true;
 	ws->active_count++;
