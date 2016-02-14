@@ -3086,9 +3086,6 @@ config HAS_MACH_MEMUTILS
 	default n
 	bool "Motorola MSM memcpy enhancements"
 	help
-<<<<<<< HEAD
-	Faster memcpy performance for Krait
-=======
 	  A simple sysfs interface to force adapters that
 	  are detected as USB to charge as AC.
 
@@ -3100,7 +3097,6 @@ config MSM_HOTPLUG
 	  The MSM hotplug driver controls on-/offlining of additional cores based
 	  on current cpu load.
 
->>>>>>> 29c3945... msm: Add MSM hotplug driver
 endif
 
 config KERNEL_TEXT_MPU_PROT
@@ -3110,17 +3106,6 @@ config KERNEL_TEXT_MPU_PROT
           sections early in boot. Read access is permitted to
           all masters; Write access is only permited to the
           secure world.
-<<<<<<< HEAD
-=======
-
-
-config MSM_HOTPLUG
-	bool "MSM hotplug driver"
-	depends on HOTPLUG_CPU
-	default y
-	help
-	  The MSM hotplug driver controls on-/offlining of additional cores based
-	  on current cpu load.
 
 config INTELLI_HOTPLUG
 	bool "Intelli hotplug driver"
@@ -3156,5 +3141,3 @@ config ALUCARD_HOTPLUG
 	  Generic Alucard-hotplug cpu hotplug driver for ARM SOCs
 
 
-endif
->>>>>>> 3824143... msm: Add Intelli Hotplug driver

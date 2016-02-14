@@ -1023,18 +1023,10 @@ static inline void inc_nr_running(struct rq *rq)
 	nr_stats->nr_last_stamp = rq->clock_task;
 #endif
 	rq->nr_running++;
-<<<<<<< HEAD
 
-	if (rq->nr_running >= 2) {
-		if (!rq->rd->overload)
-			rq->rd->overload = true;
-	}
-=======
 #ifdef CONFIG_INTELLI_HOTPLUG
 	write_seqcount_end(&nr_stats->ave_seqcnt);
 #endif
-
->>>>>>> 3824143... msm: Add Intelli Hotplug driver
 }
 
 static inline void dec_nr_running(struct rq *rq)

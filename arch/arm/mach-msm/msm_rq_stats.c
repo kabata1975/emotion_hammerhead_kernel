@@ -224,12 +224,6 @@ static ssize_t hotplug_disable_show(struct kobject *kobj,
 
 static struct kobj_attribute hotplug_disabled_attr = __ATTR_RO(hotplug_disable);
 
-<<<<<<< HEAD
-=======
-static struct kobj_attribute hotplug_enabled_attr =
-	__ATTR(hotplug_enable, S_IWUSR | S_IRUSR, show_hotplug_enable,
-	       store_hotplug_enable);
-
 #ifdef CONFIG_BRICKED_HOTPLUG
 unsigned int get_rq_info(void)
 {
@@ -248,7 +242,6 @@ unsigned int get_rq_info(void)
 EXPORT_SYMBOL(get_rq_info);
 #endif
 
->>>>>>> fd997b1... msm: Add Bricked Hotplug driver
 static void def_work_fn(struct work_struct *work)
 {
 	/* Notify polling threads on change of value */
