@@ -358,10 +358,8 @@ static inline unsigned int cpufreq_quick_get_max(unsigned int cpu)
   Performance governor is fallback governor if any other gov failed to
   auto load due latency restrictions
 */
-#ifdef CONFIG_CPU_FREQ_GOV_PERFORMANCE
-extern struct cpufreq_governor cpufreq_gov_performance;
-#endif
 #ifdef CONFIG_CPU_FREQ_DEFAULT_GOV_PERFORMANCE
+extern struct cpufreq_governor cpufreq_gov_performance;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_performance)
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_POWERSAVE)
 extern struct cpufreq_governor cpufreq_gov_powersave;
@@ -378,20 +376,11 @@ extern struct cpufreq_governor cpufreq_gov_conservative;
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_INTERACTIVE)
 extern struct cpufreq_governor cpufreq_gov_interactive;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_interactive)
-<<<<<<< HEAD
 extern struct cpufreq_governor cpufreq_gov_impulse;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_impulse)
-=======
-<<<<<<< HEAD
-=======
-#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_DANCEDANCE)
-extern struct cpufreq_governor cpufreq_gov_dancedance;
-#define CPUFREQ_DEFAULT_GOVERNOR 	(&cpufreq_gov_DANCEDANCE)
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_ZZMOOVE)
 extern struct cpufreq_governor cpufreq_gov_zzmoove;
 #define CPUFREQ_DEFAULT_GOVERNOR  (&cpufreq_gov_zzmoove)
->>>>>>> 04f30f2... cpufreq: add zzmoove
->>>>>>> 6b192d9... cpufreq: add zzmoove
 #endif
 
 
