@@ -36,11 +36,7 @@ static void kcal_apply_values(struct kcal_lut_data *lut_data)
 	lut_data->blue = (lut_data->blue < lut_data->minimum) ?
 		lut_data->minimum : lut_data->blue;
 
-<<<<<<< HEAD
-	mdss_mdp_pp_kcal_update(lut_data);
-=======
 	mdss_mdp_pp_kcal_update(lut_data->red, lut_data->green, lut_data->blue);
->>>>>>> 724e90a... msm: mdss: Add KCAL support for post processing control [v2]
 }
 
 static ssize_t kcal_store(struct device *dev, struct device_attribute *attr,
@@ -129,11 +125,7 @@ static ssize_t kcal_enable_store(struct device *dev,
 
 	lut_data->enable = kcal_enable;
 
-<<<<<<< HEAD
-	mdss_mdp_pp_kcal_update(lut_data);
-=======
 	mdss_mdp_pp_kcal_enable(lut_data->enable ? true : false);
->>>>>>> 724e90a... msm: mdss: Add KCAL support for post processing control [v2]
 
 	return count;
 }
@@ -165,11 +157,7 @@ static ssize_t kcal_invert_store(struct device *dev,
 
 	lut_data->invert = kcal_invert;
 
-<<<<<<< HEAD
-	mdss_mdp_pp_kcal_invert(lut_data);
-=======
 	mdss_mdp_pp_kcal_invert(lut_data->invert);
->>>>>>> 724e90a... msm: mdss: Add KCAL support for post processing control [v2]
 
 	return count;
 }
@@ -319,13 +307,10 @@ static int __devinit kcal_ctrl_probe(struct platform_device *pdev)
 		return -ENOMEM;
 	}
 
-<<<<<<< HEAD
-=======
 	mdss_mdp_pp_kcal_enable(true);
 
 	mdss_mdp_pp_kcal_update(NUM_QLUT, NUM_QLUT, NUM_QLUT);
 
->>>>>>> 724e90a... msm: mdss: Add KCAL support for post processing control [v2]
 	lut_data->red = lut_data->green = lut_data->blue = NUM_QLUT;
 	lut_data->minimum = 35;
 	lut_data->enable = 1;

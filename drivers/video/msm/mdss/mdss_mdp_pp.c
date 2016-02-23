@@ -259,10 +259,6 @@ struct mdss_pp_res_type {
 	struct pp_hist_col_info dspp_hist[MDSS_MDP_MAX_DSPP];
 };
 
-<<<<<<< HEAD
-#if defined(CONFIG_FB_MSM_MDSS_KCAL_CTRL)
-=======
->>>>>>> 724e90a... msm: mdss: Add KCAL support for post processing control [v2]
 uint32_t igc_Table_RGB[256] = {
 	4080, 4064, 4048, 4032, 4016, 4000, 3984, 3968, 3952, 3936, 3920, 3904,
 	3888, 3872, 3856, 3840, 3824, 3808, 3792, 3776, 3760, 3744, 3728, 3712,
@@ -289,10 +285,6 @@ uint32_t igc_Table_RGB[256] = {
 };
 int igc_c0_c1[256] = {0,};
 int igc_c2[256] = {0,};
-<<<<<<< HEAD
-#endif
-=======
->>>>>>> 724e90a... msm: mdss: Add KCAL support for post processing control [v2]
 
 static DEFINE_MUTEX(mdss_pp_mutex);
 static struct mdss_pp_res_type *mdss_pp_res;
@@ -1293,11 +1285,8 @@ int mdss_mdp_pp_resume(struct mdss_mdp_ctl *ctl, u32 dspp_num)
 			mdss_pp_res->gamut_disp_cfg[disp_num].flags |=
 				MDP_PP_OPS_WRITE;
 	}
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 724e90a... msm: mdss: Add KCAL support for post processing control [v2]
 	if (pp_sts.pgc_sts & PP_STS_ENABLE) {
 		flags |= PP_FLAGS_DIRTY_PGC;
 		if (!(mdss_pp_res->pgc_disp_cfg[disp_num].flags
@@ -1310,24 +1299,6 @@ int mdss_mdp_pp_resume(struct mdss_mdp_ctl *ctl, u32 dspp_num)
 	return 0;
 }
 
-<<<<<<< HEAD
-#if defined(CONFIG_FB_MSM_MDSS_KCAL_CTRL)
-void mdss_mdp_pp_kcal_update(struct kcal_lut_data *lut_data)
-{
-	u32 copyback = 0;
-	struct mdp_pcc_cfg_data pcc_config;
-
-	memset(&pcc_config, 0, sizeof(struct mdp_pcc_cfg_data));
-
-	pcc_config.block = MDP_LOGICAL_BLOCK_DISP_0;
-	pcc_config.ops = lut_data->enable ? MDP_PP_OPS_WRITE | MDP_PP_OPS_ENABLE :
-		MDP_PP_OPS_WRITE | MDP_PP_OPS_DISABLE;
-	pcc_config.r.r = lut_data->red * PCC_ADJ;
-	pcc_config.g.g = lut_data->green * PCC_ADJ;
-	pcc_config.b.b = lut_data->blue * PCC_ADJ;
-
-	mdss_mdp_pcc_config(&pcc_config, &copyback);
-=======
 void mdss_mdp_pp_kcal_enable(bool enable)
 {
 	u32 disp_num = 0;
@@ -1364,7 +1335,6 @@ void mdss_mdp_pp_kcal_update(int kr, int kg, int kb)
 
 	mdss_pp_res->pgc_disp_cfg[disp_num] = *pgc_config;
 	mdss_pp_res->pp_disp_flags[disp_num] |= PP_FLAGS_DIRTY_PGC;
->>>>>>> 724e90a... msm: mdss: Add KCAL support for post processing control [v2]
 }
 
 void mdss_mdp_pp_kcal_pa(struct kcal_lut_data *lut_data)
@@ -1384,11 +1354,7 @@ void mdss_mdp_pp_kcal_pa(struct kcal_lut_data *lut_data)
 	mdss_mdp_pa_config(&pa_config, &copyback);
 }
 
-<<<<<<< HEAD
-void mdss_mdp_pp_kcal_invert(struct kcal_lut_data *lut_data)
-=======
 void mdss_mdp_pp_kcal_invert(int enable)
->>>>>>> 724e90a... msm: mdss: Add KCAL support for post processing control [v2]
 {
 	int i;
 	u32 disp_num = 0, copyback = 0, copy_from_kernel = 1;
@@ -1400,11 +1366,7 @@ void mdss_mdp_pp_kcal_invert(int enable)
 	igc_config->block = MDP_LOGICAL_BLOCK_DISP_0;
 	igc_config->len = IGC_LUT_ENTRIES;
 
-<<<<<<< HEAD
-	if (lut_data->invert) {
-=======
 	if (enable) {
->>>>>>> 724e90a... msm: mdss: Add KCAL support for post processing control [v2]
 		igc_config->ops = MDP_PP_OPS_WRITE | MDP_PP_OPS_ENABLE;
 		for (i = 0; i < IGC_LUT_ENTRIES; i++) {
 			igc_c0_c1[i] = (igc_Table_RGB[i] & 0xfff) |
@@ -1413,19 +1375,11 @@ void mdss_mdp_pp_kcal_invert(int enable)
 		}
 		igc_config->c0_c1_data = &igc_c0_c1[0];
 		igc_config->c2_data = &igc_c2[0];
-<<<<<<< HEAD
-	} else
-=======
 	} else 
->>>>>>> 724e90a... msm: mdss: Add KCAL support for post processing control [v2]
 		igc_config->ops = MDP_PP_OPS_WRITE | MDP_PP_OPS_DISABLE;
 
 	mdss_mdp_igc_lut_config(igc_config, &copyback, copy_from_kernel);
 }
-<<<<<<< HEAD
-#endif
-=======
->>>>>>> 724e90a... msm: mdss: Add KCAL support for post processing control [v2]
 
 int mdss_mdp_pp_init(struct device *dev)
 {
