@@ -533,8 +533,6 @@ int mdss_mdp_cmd_stop(struct mdss_mdp_ctl *ctl)
 
 	mdss_mdp_cmd_clk_off(ctx);
 
-	flush_work_sync(&ctx->pp_done_work);
-
 	ctx->panel_on = 0;
 
 	mdss_mdp_set_intr_callback(MDSS_MDP_IRQ_PING_PONG_RD_PTR, ctx->pp_num,
