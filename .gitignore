@@ -86,3 +86,5 @@ GTAGS
 \#*#
 arch/arm/mach-msm/smd_rpc_sym.c
 *.img
+build.sh
+upload.sh
