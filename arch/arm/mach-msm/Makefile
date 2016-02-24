@@ -460,4 +460,8 @@ obj-$(CONFIG_BRICKED_HOTPLUG) += bricked_hotplug.o
 >>>>>>> fd997b1... msm: Add Bricked Hotplug driver
 =======
 obj-$(CONFIG_MSM_LIMITER) += msm_limiter.o
+<<<<<<< HEAD
 >>>>>>> a22ca5c... cpufreq: Add Frequency limiter driver
+=======
+obj-$(CONFIG_ALUCARD_HOTPLUG) += alucard_hotplug.o
+>>>>>>> 11bc639... msm: Add Alucard hotplug - many thanks to Alucard24
