@@ -434,6 +434,18 @@ obj-$(CONFIG_CPU_FREQ_MSM) += cpufreq.o
 
 obj-$(CONFIG_WALL_CLK) += wallclk.o
 obj-$(CONFIG_WALL_CLK_SYSFS) += wallclk_sysfs.o
+<<<<<<< HEAD
 obj-$(CONFIG_HAS_MACH_MEMUTILS) += memutils/
 obj-$(CONFIG_FORCE_FAST_CHARGE) += fastchg.o
 obj-$(CONFIG_MSM_SLEEPER) += msm-sleeper.o
+=======
+
+
+obj-$(CONFIG_FORCE_FAST_CHARGE) += fastchg.o
+
+obj-$(CONFIG_HAS_MACH_MEMUTILS) += memutils/
+obj-$(CONFIG_ARCH_RANDOM) += early_random.o
+obj-$(CONFIG_PERFMAP) += perfmap.o
+
+obj-$(CONFIG_MSM_HOTPLUG) += msm_hotplug.o
+>>>>>>> 29c3945... msm: Add MSM hotplug driver
