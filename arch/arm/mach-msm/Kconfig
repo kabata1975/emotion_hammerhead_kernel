@@ -3131,5 +3131,13 @@ config INTELLI_HOTPLUG
 	  Low Latency Frequency Transition capable processors.
 
 
+config BRICKED_HOTPLUG
+	bool "Enable kernel based mpdecision"
+	depends on MSM_RUN_QUEUE_STATS
+	default y
+	help
+	  This enables kernel based multi core control.
+	  (up/down hotplug based on load)
+
 endif
 >>>>>>> 3824143... msm: Add Intelli Hotplug driver
