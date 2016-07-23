@@ -299,7 +299,6 @@ static void __ref bricked_hotplug_resume(struct work_struct *work)
 		}
 	}
 
-	if (wakeup_boost || required_wakeup) {
 		/* Fire up all CPUs */
 		for_each_cpu_not(cpu, cpu_online_mask) {
 			if (cpu == 0)
@@ -308,14 +307,6 @@ static void __ref bricked_hotplug_resume(struct work_struct *work)
 			apply_down_lock(cpu);
 		}
 	}
-
-	/* Resume hotplug workqueue if required */
-	if (required_reschedule) {
-		queue_delayed_work(hotplug_wq, &hotplug_work, 0);
-		pr_info(MPDEC_TAG": Screen -> on. Activated bricked hotplug. | Mask=[%d%d%d%d]\n",
-				cpu_online(0), cpu_online(1), cpu_online(2), cpu_online(3));
-	}
-}
 
 static void __bricked_hotplug_resume(void)
 {

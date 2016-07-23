@@ -520,7 +520,6 @@ static void __ref msm_hotplug_resume(struct work_struct *work)
 		}
 	}
 
-	if (wakeup_boost || required_wakeup) {
 		/* Fire up all CPUs */
 		for_each_cpu_not(cpu, cpu_online_mask) {
 			if (cpu == 0)
@@ -529,11 +528,6 @@ static void __ref msm_hotplug_resume(struct work_struct *work)
 			apply_down_lock(cpu);
 		}
 	}
-
-	/* Resume hotplug workqueue if required */
-	if (required_reschedule)
-		reschedule_hotplug_work();
-}
 
 static void __msm_hotplug_suspend(void)
 {
